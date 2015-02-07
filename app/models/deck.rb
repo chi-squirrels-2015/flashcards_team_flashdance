@@ -12,8 +12,8 @@ class Deck < ActiveRecord::Base
   end
 
   def random_unsolved
-    self.cards.select {|card| card.solved == false }.sample
-    self.cards.where(solved: false)
+    # self.cards.select {|card| card.solved == false }.sample
+    self.cards.where(solved: false).sample
   end
 
   def check_card_solved?(card, guess = '')
