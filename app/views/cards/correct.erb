@@ -6,11 +6,13 @@
   <p><%= @new_card.definition %></p>
 
 
-  <form method = "post" action = "/cards/<%=@card.id%>">
+  <form method = "post" action = "/cards/<%=@new_card.id%>">
   <input type="text" name ="guess" value="" >
 
 
 
   <input type="submit" value="SUBMIT">
+
   </form>
+     <p>You have solved <%=@percent_solved%> of the deck </p>
 </div>

@@ -4,9 +4,12 @@
 
 <!--   <img id = "flashcards" src = "<img id = "flashcards" src = "http://edutech4teachers.edublogs.org/files/2012/06/flashcards-10lxv8f.png"/>
 <div id = "homepage"> -->
-
-  <form method = "get" action = "/decks/<%=@deck.id%>">
-
-  <input id = "homepage_button" type="submit" value="START GAME">
+<h1> Which deck would you like to play? </h1>
+  <form method = "get" action = "/decks/">
+  <input name = "name" type="submit" value="capitals">
+  </form>
+  <br>
+  <form method = "get" action = "/decks/">
+  <input name = "name" type="submit" value="coding">
   </form>
 </div>
