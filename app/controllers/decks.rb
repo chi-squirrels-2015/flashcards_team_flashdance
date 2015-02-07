@@ -21,11 +21,15 @@ post '/cards/:id' do
   @card = Card.find(params[:id])
   @deck = @card.deck
   @new_card = @deck.random_unsolved
-  if @deck.check_card_solved?(@card, params[:guess])
-    erb :"cards/correct"
-  else
-    erb :"cards/incorrect"
-  end
+  # if @deck.check_deck_solved?
+  #   erb :final_page
+  # else
+    if @deck.check_card_solved?(@card, params[:guess])
+      erb :"cards/correct"
+    else
+      erb :"cards/incorrect"
+    end
+  # end
 end
 # post '/decks/:id/cards' do
 

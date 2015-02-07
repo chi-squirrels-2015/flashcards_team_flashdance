@@ -12,17 +12,14 @@
   text-align: center;
 }
 
-#flashcards{
-  size: 200%;
-  margin-left:550px;
-  margin-top: 150px;
-}
 
-/*h1 {
-  font-family: arial;
-  text-align: center;
-  margin-top: 150px;
-}*/
+
+#flashcards{
+/*  size: 300%;*/
+  display: inline-block;
+  width: 15%;
+  margin: 70px 42% 0 42%;
+}
 
 
 .submit_forms {

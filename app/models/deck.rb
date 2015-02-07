@@ -25,4 +25,18 @@ class Deck < ActiveRecord::Base
     self.cards.all? {|card| card.solved == true }
     self.cards.where(solved: false).count == 0
   end
+
+  def count_solved
+    count = 0
+    self.cards.each do |card|
+      if card.solved
+        count += 1
+      end
+    end
+    count
+  end
+
+  def percent_solved
+    (count_solved.to_f/card_count.to_f).to_i
+  end
 end
