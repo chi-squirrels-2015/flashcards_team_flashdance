@@ -1,11 +1,23 @@
 get '/homepage' do
-  @deck = Deck.all.sample
   erb :'/decks/homepage'
 end
 
+get '/decks/' do
+  p params
+  if params[:name] == "coding"
+    @deck = Deck.find_by(name: "coding")
+  else
+    @deck = Deck.find_by(name: "capitals")
+  end
+  id = @deck.id
+  redirect "/decks/#{id}"
+end
+
 get '/decks/:id' do
+  p params
   @deck = Deck.find(params[:id])
   @card = @deck.random_unsolved
+  @percent_solved = @deck.percent_solved
   erb :"/decks/show"
 end
 
@@ -20,13 +32,20 @@ end
 post '/cards/:id' do
   @card = Card.find(params[:id])
   @deck = @card.deck
-  @new_card = @deck.random_unsolved
+
   # if @deck.check_deck_solved?
   #   erb :final_page
   # else
+  p params
     if @deck.check_card_solved?(@card, params[:guess])
+      puts "IM INSIDE CORRECT"
+      @new_card = @deck.random_unsolved
+      @percent_solved = @deck.percent_solved
       erb :"cards/correct"
     else
+      puts "IM INSIDE INCORRECT"
+      @new_card = @deck.random_unsolved
+      @percent_solved = @deck.percent_solved
       erb :"cards/incorrect"
     end
   # end

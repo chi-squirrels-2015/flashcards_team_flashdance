@@ -1,10 +1,6 @@
 require_relative 'card'
 
 class Deck < ActiveRecord::Base
-  # attr_reader :cards
-  # def initialize(cards = nil)
-  #   @cards = cards || []
-  # end
   has_many :cards
 
   def card_count
@@ -37,6 +33,6 @@ class Deck < ActiveRecord::Base
   end
 
   def percent_solved
-    (count_solved.to_f/card_count.to_f).to_i
+    percent = (((count_solved).to_f/(card_count).to_f)*100).to_i
   end
 end

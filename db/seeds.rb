@@ -16,9 +16,16 @@ def get_file(filename)
 end
 
 
-cards = get_file('db/flashcard_samples.txt')
-Deck.create(name:"first_deck")
-cards.each do |card|
-  card.deck = Deck.find_by(name: "first_deck")
+code_cards = get_file('db/flashcard_samples.txt')
+Deck.create(name:"coding")
+code_cards.each do |card|
+  card.deck = Deck.find_by(name: "coding")
+  card.save
+end
+
+capital_cards = get_file('db/capitals.txt')
+Deck.create(name:"capitals")
+capital_cards.each do |card|
+  card.deck = Deck.find_by(name: "capitals")
   card.save
 end
