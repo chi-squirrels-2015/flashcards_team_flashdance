@@ -1,9 +1,6 @@
 
-
-
-
-
 <div class = "forms">
+  <img src ="<%= @deck.image %>" >
   <h1>Here is your definition. What is the word to match it?</h1>
   <p><%= @card.definition %></p>
   <form method = "post" action = "/cards/<%=@card.id%>">

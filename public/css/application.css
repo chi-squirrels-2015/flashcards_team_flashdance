@@ -7,18 +7,28 @@
   background: linear-gradient(#4d94ff, #e6f0ff);
 }
 
+/*#flashcard_container {
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  width: 700px;
+  height: 450px;
+}*/
+
+body {
+    background-color: #D6EBFF;
+}
+
 #homepage {
   margin-top: 150px;
   text-align: center;
 }
 
 
-
 #flashcards{
-/*  size: 300%;*/
+  size: 400%;
   display: inline-block;
-  width: 15%;
-  margin: 70px 42% 0 42%;
+  /*margin: 85px 42% 0 42%;*/
 }
 
 
@@ -30,7 +40,9 @@
 
 .forms {
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 63px;
   width: 550px;
   text-align: center;
 }
+
+
