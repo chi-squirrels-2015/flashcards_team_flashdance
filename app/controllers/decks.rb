@@ -17,9 +17,12 @@ get '/decks/:id' do
   p params
   @deck = Deck.find(params[:id])
   @card = @deck.random_unsolved
+  @image = @deck.image
   @percent_solved = @deck.percent_solved
   erb :"/decks/show"
 end
+
+
 
 # get '/decks/:id/cards/new' do
 # @deck = Deck.find(params[:id])
