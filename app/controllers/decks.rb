@@ -1,4 +1,5 @@
 get '/homepage' do
+  session.clear
   erb :'/decks/homepage'
 end
 
@@ -15,6 +16,7 @@ end
 
 get '/decks/:id' do
   p params
+  session[:count] ||= 0
   @deck = Deck.find(params[:id])
   @card = @deck.random_unsolved
   @image = @deck.image
@@ -35,20 +37,20 @@ end
 post '/cards/:id' do
   @card = Card.find(params[:id])
   @deck = @card.deck
+  total_count = @deck.card_count.to_f
 
   # if @deck.check_deck_solved?
   #   erb :final_page
   # else
   p params
     if @deck.check_card_solved?(@card, params[:guess])
-      puts "IM INSIDE CORRECT"
       @new_card = @deck.random_unsolved
-      @percent_solved = @deck.percent_solved
+      session[:count] += 1
+      @percent_solved = (((session[:count]).to_f/total_count)*100).to_i
       erb :"cards/correct"
     else
-      puts "IM INSIDE INCORRECT"
       @new_card = @deck.random_unsolved
-      @percent_solved = @deck.percent_solved
+      @percent_solved = (((session[:count]).to_f/total_count)*100).to_i
       erb :"cards/incorrect"
     end
   # end
